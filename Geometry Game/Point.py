@@ -5,7 +5,7 @@ class Point:
         self.y = y
         
     def falls_in_rectangle(self, rectangle):
-        if rectangle.low_left.x < self.x < rectangle.top_right and rectangle.low_left.y < self.y < rectangle.top_right[1]:
+        if rectangle.low_left.x < self.x < rectangle.top_right.x and rectangle.low_left.y < self.y < rectangle.top_right.y:
             return True
         else:
             return False 
