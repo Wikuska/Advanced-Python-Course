@@ -4,8 +4,8 @@ class Point:
         self.x = x
         self.y = y
         
-    def falls_in_rectangle(self, low_left, up_right):
-        if low_left[0] < self.x < up_right and low_left[1] < self.y < up_right[1]:
+    def falls_in_rectangle(self, rectangle):
+        if rectangle.low_left.x < self.x < rectangle.top_right and rectangle.low_left.y < self.y < rectangle.top_right[1]:
             return True
         else:
             return False 
