@@ -1,16 +1,23 @@
 from random import randint
-from Point import Point
-from Rectangle import Rectangle
+import turtle
+from Point import Point, GuiPoint
+from Rectangle import Rectangle, GuiRectangle
 
-rectangle = Rectangle(Point(randint(0,9), randint(0,9)),
-                      Point(randint(10,19), randint(10,19)))
+rectangle = GuiRectangle(Point(randint(0,200), randint(0,200)),
+                      Point(randint(10,200), randint(10,200)))
 
-print(f"Rectangle Coordinates: {rectangle.low_left.x},{rectangle.low_left.y} and {rectangle.top_right.x},{rectangle.top_right.y}")
+# Print rectangle coordinates
+print(f"Rectangle Coordinates: {rectangle.point1.x},{rectangle.point1.y} and {rectangle.point2.x},{rectangle.point2.y}")
 
-user_point = Point(float(input("Guess X: ")), float(input("Guess Y: ")))
-
+# Get point guess from user
+user_point = GuiPoint(float(input("Guess X: ")), float(input("Guess Y: ")))
 print(f"Your answer is: {user_point.falls_in_rectangle(rectangle)}")
 
-user_area_guess = input("What is the area of this rectangle?: ")
-
+# Get area guess from user
+user_area_guess = float(input("What is the area of this rectangle?: "))
 print(f"Your answer is: {rectangle.is_area_correct(user_area_guess)}")
+
+myturtle = turtle.Turtle()
+rectangle.draw(canvas=myturtle)
+user_point.draw(canvas=myturtle)
+turtle.done()
