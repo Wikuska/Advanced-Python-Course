@@ -24,4 +24,4 @@ class PdfReport:
         pdf.cell(w=100, h=40, txt=flatmate2.name, border=1)
         pdf.cell(w=150, h=40, txt=str(flatmate2.pays(bill, flatmate1)), border=1, ln=1)
         
-        pdf.output(self.filename)
+        pdf.output(f"reports/{self.filename}.pdf")
